@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/scndstyles.css') }}">
+</head>
+<body>
+<h1>Traffic Accident Statistics of Turkiye</h1>
+|<div class="fbox">
+    <div class="item">
+        <p>Traffic accidents in inhabited vs unhabited areas in between 2009-2022</p>
+        <img src="{{ url_for('static', filename='images/year_accident.png') }}" alt="Description of Image 1" id="image1">
+    </div>
+    <div class="item">
+        <p>The comparison pie chart of accidents happening in inhabited areas vs uninhabited areas:</p>
+        <img src="{{ url_for('static', filename='images/accidents_in_un.png') }}" alt="Description of Image 1" id="image2">
+    </div>
+    <div class="item">
+        <p>The death rate of accidents in inhabited areas:</p>
+        <img src="{{ url_for('static', filename='images/death_in.png') }}" alt="Description of Image 1" id="image3">
+    </div>
+    <div class="item">
+        <p>The death rate of accidents in uninhabited areas:</p>
+        <img src="{{ url_for('static', filename='images/death_un.png') }}" alt="Description of Image 1" id="image4">
+    </div>
+     <div class="item">
+        <p>When we check the number of registered cars through years 2009-2002, we observe an always-increasing pattern. But when we check the correlation between the number of accidents in Istanbul vs the number of registered vehicles, we notice there is almost none.</p>
+        <img src="{{ url_for('static', filename='images/year_reg_acc.png') }}" alt="Description of Image 1" id="image5">
+    </div>
+     <div class="item">
+        <p>When we check the relation between population, person per area and number of accidents in 81 provinces of Turkiye, we observe a very strong, almost a perfect correlation, unlike our previous attempt:</p>
+        <img src="{{ url_for('static', filename='images/byprovince.png') }}" alt="Description of Image 1" id="image6">
+    </div>
+     <div class="item">
+        <p>Here is a scatter plot of population vs number of accidents in provinces to observe the pattern better.</p>
+        <img src="{{ url_for('static', filename='images/byprovsc.png') }}" alt="Description of Image 1" id="image7">
+    </div>
+</div>
+
+</body>
+</html>
