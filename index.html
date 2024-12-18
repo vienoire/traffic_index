@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSV Plot Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <script>
+        function showInputs() {
+            var plotType = document.getElementById("plotType").value;
+            var scatterInputs = document.getElementById("scatterInputs");
+            var barInputs = document.getElementById("barInputs");
+            var pieInputs = document.getElementById("pieInputs");
+            var heatmapInputs = document.getElementById("heatmapInputs");
+
+            scatterInputs.style.display = (plotType === "scatter") ? "block" : "none";
+            barInputs.style.display = (plotType === "bar") ? "block" : "none";
+            pieInputs.style.display = (plotType === "pie") ? "block" : "none";
+            heatmapInputs.style.display = (plotType === "heatmap") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <h1>CSV PLOT GENERATOR AND TRAFFIC INFORMATION OF ISTANBUL</h1>
+    <h2>To check the graphical examples of Istanbul's traffic data, <a href="{{ url_for('scndpage') }}">check here</a></h2>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".csv" required>
+
+        <select name="plot_type" id="plotType" onchange="showInputs()">
+            <option value="scatter">Scatter Plot</option>
+            <option value="bar">Bar Chart</option>
+            <option value="pie">Pie Chart</option>
+            <option value="heatmap">Heatmap</option>
+        </select>
+
+        <div id="scatterInputs" style="display: none;">
+            <label for="x_column">X-axis:</label>
+            <input type="text" name="x_column" placeholder="Enter column name for X-axis">
+            <label for="y_column">Y-axis:</label>
+            <input type="text" name="y_column" placeholder="Enter column name for Y-axis">
+        </div>
+
+        <div id="barInputs" style="display: none;">
+            <label for="x_axis">X-axis:</label>
+            <input type="text" name="x_axis" placeholder="Enter column name for X-axis">
+            <label for="y_axis">Y-axis:</label>
+            <input type="text" name="y_axis" placeholder="Enter column name for Y-axis">
+        </div>
+
+        <div id="pieInputs" style="display: none;">
+            <label for="pie_columns">Columns (comma separated):</label>
+            <input type="text" name="pie_columns" placeholder="Enter columns for pie chart">
+        </div>
+
+        <div id="heatmapInputs" style="display: none;">
+            <label for="heatmap_columns">Columns (comma separated):</label>
+            <input type="text" name="heatmap_columns" placeholder="Enter columns for heatmap">
+        </div>
+
+        <button type="submit">Generate Plot</button>
+    </form>
+</body>
+</html>
